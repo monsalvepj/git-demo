@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>first mini challenge</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <p>Your Time is: <span id="time"> seconds</span></p>
+    <div id="box"></div>
+    
+    <!-- <button id="done">I'm done playing!</button>-->
+    
+    
+    
+    
+    
+    <script>
+        
+        var clickedTime; var createdTime; var reactionTime;
+        
+        function makeBox(){
+            createdTime = Date.now();
+            
+            var time = Math.random()*5000;
+        
+        setTimeout(function(){
+            document.getElementById("box").style.display="block";
+            }, time);
+        
+        }
+        
+        document.getElementById("box").onclick = function(){
+            
+            clickedTime = Date.now();
+            
+            reactionTime = (clickedTime - createdTime)/1000;
+            
+            //alert(reactionTime);
+            document.getElementById("time").innerHTML = reactionTime;
+            
+            this.style.display="none";
+            
+            makeBox();
+        }
+        
+        
+        makeBox();
+        
+    </script>
+</body>
+</html>
