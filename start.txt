@@ -1,1 +1,0 @@
-Test Git Quick Start Demo for this repo: https://github.com/monsalvepj/git-demo.git
