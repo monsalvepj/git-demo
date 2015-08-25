@@ -4,17 +4,29 @@
 <head>
     <title>first mini challenge</title>
     <style>
+        
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+        }
+        
         #box {
             width: 200px;
             height: 200px;
             background-color: blue;
             display: none;
+            position: relative;
+        }
+        
+        .bold{
+            font-weight: bold;
         }
         
     </style>
 </head>
 <body>
-    <p>Your Time is: <span id="time"> seconds</span></p>
+    <h1>Test your reactions!</h1>
+    <p>Clicp on the boxes and circles as quickly as you can!</p>
+    <p class="bold">Your Time is: <span id="time"> seconds</span></p>
     <div id="box"></div>
     
     <!-- <button id="done">I'm done playing!</button>-->
@@ -25,6 +37,16 @@
     
     <script>
         
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        
+        
         var clickedTime; var createdTime; var reactionTime;
         
         function makeBox(){
@@ -33,6 +55,24 @@
             var time = Math.random()*5000;
         
         setTimeout(function(){
+            
+            document.getElementById("box").style.backgroundColor = getRandomColor();
+            
+            if ((Math.random() > 0.5)) {
+                document.getElementById("box").style.borderRadius = "100px";
+            } else {
+                document.getElementById("box").style.borderRadius = "0px";
+            }
+            
+            var top = Math.random();
+            top = top *300;
+           
+            var left = Math.random();
+            left = left *500;
+            
+            document.getElementById("box").style.top=top+"px";
+            document.getElementById("box").style.left=left+"px"
+            
             document.getElementById("box").style.display="block";
             }, time);
         
